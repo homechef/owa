@@ -4,7 +4,7 @@ module Owa
 			attr_reader :conn
 
       def initialize(conn: nil)
-        @conn = conn || Faraday.new(url:"https://api.openweathermap.org/data/2.5")
+        @conn = conn || Faraday.new(url: Owa::configuration.api_url)
       end
 
       def get(endpoint, params = {})
@@ -14,7 +14,7 @@ module Owa
       private
 
       def default_params
-				{ appid: "test" }
+				{ appid: Owa::configuration.appid }
       end
     end
   end
