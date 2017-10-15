@@ -1,10 +1,10 @@
 module Owa
   module Requests
     class Weather
-      def initialize(parser: Parser.new, http_client: HttpClient.new)
+      def initialize(options, parser: Parser.new, http_client: HttpClient.new)
         @parser = parser
         @http_client = http_client
-        @options = {q: "berlin"}
+        @options = options.call
       end
 
       def call
