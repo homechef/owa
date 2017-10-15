@@ -1,8 +1,6 @@
-# Owa
+# Owa (OpenWeatherApi)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/owa`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is yet another API client for the https://openweathermap.org. This implimentation aims for simplicity with small objects that are mostly closed for modification and are having one responsibility.
 
 ## Installation
 
@@ -15,14 +13,38 @@ gem 'owa'
 And then execute:
 
     $ bundle
-
 Or install it yourself as:
 
     $ gem install owa
 
+You will need to initialize it after installation. If you are using this gem in a Rails application you can add the initialization in your `config/initializers/owa.rb`:
+
+``` ruby
+Owa.configure do |config|
+  config.api_url="https://api.openweathermap.org/data/2.5"
+  config.appid="your_appid_from_owm_api"
+end
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+At this moment there are only two ways to use this client(more to be implemented soon):
+
+- To get a weather by a City and Countrycode. CountryCode can be used optionally.
+
+```
+Owa::Current.by_city("berlin", "DE")
+# Or
+Owa::Current.by_city("berlin")
+```
+
+- To get the weather by geocode.
+
+```
+Owa::Current.by_geocode("130", "80")
+```
+
+Note that on the events that API response is not a desired weather report this client raises errors with some messages which can be used to handle the error events and lets users know what went wrong.
 
 ## Development
 
@@ -32,5 +54,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/owa. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/hosseintoussi/owa. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
