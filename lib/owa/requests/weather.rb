@@ -9,7 +9,7 @@ module Owa
 
       def call
         response = @http_client.get("weather/", @options)
-        @parser.call(response.body)
+        @parser.call(response)
       end
     end
   end

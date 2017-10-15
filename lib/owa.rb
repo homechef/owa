@@ -1,6 +1,7 @@
 require "faraday"
 require_relative "owa/version"
 require_relative "owa/current"
+require_relative "owa/errors"
 require_relative "owa/configuration"
 require_relative "owa/requests/http_client"
 require_relative "owa/requests/parser"
