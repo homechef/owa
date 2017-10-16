@@ -10,12 +10,14 @@ RSpec.describe Owa do
       Owa.configure do |config|
         config.api_url="https://tester.com"
         config.appid="test"
+        config.units="metric"
       end
     end
 
     it "sets the configurations" do
       expect(Owa::configuration.api_url).to eq("https://tester.com")
       expect(Owa::configuration.appid).to eq("test")
+      expect(Owa::configuration.units).to eq("metric")
     end
 
     after do
