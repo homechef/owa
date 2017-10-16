@@ -14,7 +14,8 @@ module Owa
       private
 
       def default_params
-				{ appid: Owa::configuration.appid }
+				{ appid: Owa::configuration.appid,
+          units: Owa::configuration.units }
       end
     end
   end

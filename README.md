@@ -19,10 +19,11 @@ Or install it yourself as:
 
 You will need to initialize it after installation. If you are using this gem in a Rails application you can add the initialization in your `config/initializers/owa.rb`:
 
-``` ruby
+```ruby
 Owa.configure do |config|
-  config.api_url="https://api.openweathermap.org/data/2.5"
-  config.appid="your_appid_from_owm_api"
+  config.api_url = "https://api.openweathermap.org/data/2.5"
+  config.appid = "your_appid_from_owm_api"
+  config.units = "metric"
 end
 ```
 
@@ -32,7 +33,7 @@ At this moment there are only two ways to use this client(more to be implemented
 
 - To get a weather by a City and Countrycode. CountryCode can be used optionally.
 
-```
+```ruby
 Owa::Current.by_city("berlin", "DE")
 # Or
 Owa::Current.by_city("berlin")
@@ -40,7 +41,7 @@ Owa::Current.by_city("berlin")
 
 - To get the weather by geocode.
 
-```
+```ruby
 Owa::Current.by_geocode("130", "80")
 ```
 

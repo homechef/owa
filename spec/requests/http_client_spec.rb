@@ -7,7 +7,7 @@ RSpec.describe Owa::Requests::HttpClient do
       request = described_class.new(conn: conn)
 
       expect(request.conn).to receive(:get)
-        .with("/test", { appid: nil, test: "test" })
+        .with("/test", { appid: nil, units: nil, test: "test" })
 
       request.get("/test", {test: "test"})
     end
