@@ -2,16 +2,18 @@ module Owa
   module Requests
     module Options
       class Geocode
-        def initialize(lon, lat)
+        def initialize(lon, lat, cnt=nil)
           @lon = lon
           @lat = lat
+          @cnt = cnt
         end
 
         def call
-          { lon: @lon, lat: @lat }
+          params = { lon: @lon, lat: @lat }
+          params.merge!(cnt: @cnt) if @cnt
+          params
         end
       end
     end
   end
 end
-

@@ -1,5 +1,6 @@
 require "faraday"
 require_relative "owa/version"
+require_relative "owa/base"
 require_relative "owa/current"
 require_relative "owa/forecast"
 require_relative "owa/future_forecast"

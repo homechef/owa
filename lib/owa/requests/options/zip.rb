@@ -2,13 +2,16 @@ module Owa
   module Requests
     module Options
       class Zip
-        def initialize(zip, country_code=nil)
+        def initialize(zip, country_code=nil, cnt=nil)
           @zip = zip
           @country_code = country_code
+          @cnt = cnt
         end
 
         def call
-          { zip: query }
+          params = { zip: query }
+          params.merge!(cnt: @cnt) if @cnt
+          params
         end
 
         private
