@@ -11,7 +11,11 @@ module Owa
         when 404
           raise NotFound.new
         else
-          JSON.parse(response.body, object_class: OpenStruct)
+          begin
+            JSON.parse(response.body, object_class: OpenStruct)
+          rescue => e
+            raise BadResponse.new(e.inspect, response.inspect)
+          end
         end
       end
     end
