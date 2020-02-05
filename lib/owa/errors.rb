@@ -1,5 +1,13 @@
 module Owa
   class OwaErrors < StandardError; end
+
+  class BadResponse < OwaErrors
+    attr_reader :message, :response_body
+    def initialize(message, body)
+      @message, @response_body = message, body
+    end
+  end
+
   class BadRequest < OwaErrors
     def message
       "That was a bad request"
