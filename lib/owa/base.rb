@@ -4,8 +4,8 @@ module Owa
       get_weather_with(Requests::Options::City.new(city, country_code, cnt))
     end
 
-    def self.by_geocode(lon, lat, cnt: nil)
-      get_weather_with(Requests::Options::Geocode.new(lon, lat, cnt))
+    def self.by_geocode(lat, lon, cnt: nil)
+      get_weather_with(Requests::Options::Geocode.new(lat, lon, cnt))
     end
 
     def self.by_zip(zip, country_code: nil, cnt: nil)

@@ -42,7 +42,7 @@ Owa::Current.by_city("berlin")
 - To get the weather by geocode.
 
 ```ruby
-Owa::Current.by_geocode("130", "80")
+Owa::Current.by_geocode("80", "130")
 ```
 
 Note that on the events that API response is not a desired weather report this client raises errors with some messages which can be used to handle the error events and lets users know what went wrong.
